@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page_1.dart';
 
 void main() {
@@ -12,12 +13,12 @@ class ToDoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: , 
+      routerConfig: AppRouter.router, 
       debugShowCheckedModeBanner: false, 
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white
       ),
-      home: SplashPage1(),
+
     ) ;
   }
 }

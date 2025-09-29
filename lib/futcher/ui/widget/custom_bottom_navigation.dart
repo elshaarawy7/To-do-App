@@ -1,37 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
-import 'package:todo_app/core/utils/color_app.dart';
 
-class SplashPage2 extends StatelessWidget {
-  const SplashPage2({super.key});
+class CustomBottomNavigation extends StatelessWidget {
+  const CustomBottomNavigation({super.key, this.onPressed, required this.currentIndex}); 
+  final  void Function()? onPressed ; 
+
+  final int currentIndex; 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-               SizedBox(height: 150),
-            Image.asset('assets/splash/Rectangle 4239.png'),
-
-            SizedBox(height: 100),
-
-            Expanded(
-              child: Container(
-                width: double.infinity, 
-                decoration: BoxDecoration(
-                  color: ColorApp.green,
-                  borderRadius: const BorderRadius.only(
-                    topLeft: Radius.circular(16),
-                    topRight: Radius.circular(16),
-                  ),
-                ), 
-
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 45),
-                child: Column(
+    return Column(
                  
                   children: [
                     Text("Create task reminders" , style: TextStyle(
@@ -45,11 +25,10 @@ class SplashPage2 extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween, 
                       children: [
-                        TextButton(onPressed: () {
-                          context.go(AppRouter.KsplashPage1) ; 
-                        },  
+                        TextButton(
+                        onPressed: onPressed ,  
                         child: Text("Skip" , style: TextStyle(
-                          color: Colors.black , 
+                          color: Colors.white , 
                           fontSize: 16 , 
                           fontWeight: FontWeight.w400 , 
                         ),),
@@ -64,28 +43,27 @@ class SplashPage2 extends StatelessWidget {
                                 width: 10, 
                                 decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(75) , 
-                                color: index == 0 ? Colors.grey : Colors.white , 
+                                color: index == currentIndex ? Colors.grey : Colors.white , 
                                
                                 ),
                                ),
                              ) , 
                           ),
-                        ) , 
+                        ) ,  
 
+                        TextButton(onPressed:  onPressed ,
+                        child: Text("Next" , style: TextStyle(
+                          color: Colors.black , 
+                          fontSize: 16 , 
+                          fontWeight: FontWeight.w400 , 
+                        ),),
+                        )  ,
 
                       ],
                     )
                     
                   ],
-                ),
-              ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
+                );
+
   }
-} 
-
-
+}
