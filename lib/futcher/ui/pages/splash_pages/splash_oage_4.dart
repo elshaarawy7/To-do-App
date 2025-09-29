@@ -37,7 +37,7 @@ class SplashOage4 extends StatelessWidget {
                     context.go(AppRouter.KSplashPage3) ;
                   },  
                   onPressed2: () {
-                    context.go(AppRouter.KSplashPage3) ;
+                    context.go(AppRouter.KSingInPage) ;
                   },
                   currentIndex: 2,
                 ) , 
