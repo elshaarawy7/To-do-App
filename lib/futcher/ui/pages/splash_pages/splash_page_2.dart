@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/core/utils/color_app.dart';
+import 'package:todo_app/futcher/ui/widget/custom_bottom_navigation.dart';
 
 class SplashPage2 extends StatelessWidget {
   const SplashPage2({super.key});
@@ -31,53 +30,15 @@ class SplashPage2 extends StatelessWidget {
 
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 45),
-                child: Column(
-                 
-                  children: [
-                    Text("Create task reminders" , style: TextStyle(
-                      color: Colors.white , 
-                      fontSize: 20 , 
-                      fontWeight: FontWeight.w500 , 
-                    ),) , 
-
-                    SizedBox(height: 100,) ,
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-                      children: [
-                        TextButton(onPressed: () {
-                          context.go(AppRouter.KsplashPage1) ; 
-                        },  
-                        child: Text("Skip" , style: TextStyle(
-                          color: Colors.black , 
-                          fontSize: 16 , 
-                          fontWeight: FontWeight.w400 , 
-                        ),),
-                        )  ,  
-
-                        Row(
-                          children: List.generate(
-                             3 , (index) => Padding(
-                               padding: const EdgeInsets.symmetric(horizontal: 3),
-                               child: Container(
-                                height: 10, 
-                                width: 10, 
-                                decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(75) , 
-                                color: index == 0 ? Colors.grey : Colors.white , 
-                               
-                                ),
-                               ),
-                             ) , 
-                          ),
-                        ) , 
-
-
-                      ],
-                    )
+                child: CustomBottomNavigation(
+                  onPressed: () {
                     
-                  ],
-                ),
+                  },  
+                  onPressed2: () {
+                    
+                  },
+                  currentIndex: 0,
+                ) , 
               ),
               ),
             ),
