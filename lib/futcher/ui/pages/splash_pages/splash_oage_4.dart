@@ -4,8 +4,8 @@ import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/core/utils/color_app.dart';
 import 'package:todo_app/futcher/ui/widget/custom_bottom_navigation.dart';
 
-class SplashPage2 extends StatelessWidget {
-  const SplashPage2({super.key});
+class SplashOage4 extends StatelessWidget {
+  const SplashOage4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class SplashPage2 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
                SizedBox(height: 150),
-            Image.asset('assets/splash/Rectangle 4239.png'),
+            Image.asset('assets/splash/Rectangle 4239 (2).png'),
 
             SizedBox(height: 100),
 
@@ -49,6 +49,4 @@ class SplashPage2 extends StatelessWidget {
       ),
     );
   }
-} 
-
-
+}
