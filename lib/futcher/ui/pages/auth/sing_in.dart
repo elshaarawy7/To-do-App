@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/futcher/ui/widget/custem_text_filed.dart';
 
 class SingIn extends StatelessWidget {
   const SingIn({super.key});
@@ -9,7 +10,7 @@ class SingIn extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 200,) , 
 
@@ -19,9 +20,58 @@ class SingIn extends StatelessWidget {
               fontWeight: FontWeight.bold 
             ),) , 
 
-            //  email and passowrd , 
+            SizedBox(height: 10,) , 
 
+            //  email and passowrd , 
+            CustemTextFiled( 
+              hintText: "enter ypur email", 
+              icon:Icons.email_outlined , 
+              validator: (value) {
+                if(value == null || value.isEmpty){
+                  return "please enter ypur email " ;
+                }
+              },
+            ) , 
+
+            SizedBox(height: 20,) ,  
+
+              CustemTextFiled( 
+              hintText: "enter ypur password", 
+              icon:Icons.lock, 
+              validator: (value) {
+                if(value == null || value.isEmpty || value.length > 6){
+                  return "please enter ypur password" ;
+                } 
+
+              },
+            ) , 
+
+            SizedBox(height: 20,) , 
+
+            // forget passowrd and remmber me 
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+              children: [
+                Text("remmber me " , style: TextStyle(
+                  color: Colors.black , 
+                  fontSize: 16 , 
+                  fontWeight: FontWeight.w500 , 
+                ),) ,  
+
+                 Text("forget passowrd " , style: TextStyle(
+                  color: Colors.green , 
+                  fontSize: 16 , 
+                  fontWeight: FontWeight.w500 , 
+                ),) ,  
+
+                // batton 
+
+                
+              ],
+            )
             
+
           ],
         ),
       ),
