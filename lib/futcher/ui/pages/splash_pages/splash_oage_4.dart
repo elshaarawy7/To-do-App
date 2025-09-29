@@ -34,12 +34,12 @@ class SplashOage4 extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16 , vertical: 45),
                 child: CustomBottomNavigation(
                   onPressed: () {
-                    context.go(AppRouter.KsplashPage1) ;
+                    context.go(AppRouter.KSplashPage3) ;
                   },  
                   onPressed2: () {
                     context.go(AppRouter.KSplashPage3) ;
                   },
-                  currentIndex: 0,
+                  currentIndex: 2,
                 ) , 
               ),
               ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/core/utils/color_app.dart';
@@ -38,9 +37,9 @@ class SplashPage3 extends StatelessWidget {
                     context.go(AppRouter.KsplahPage2) ;
                   },  
                   onPressed2: () {
-                    context.go(AppRouter.KSplashPage3) ;
+                    context.go(AppRouter.KSplashpage4) ;
                   },
-                  currentIndex: 0,
+                  currentIndex: 1,
                 ) , 
               ),
               ),
