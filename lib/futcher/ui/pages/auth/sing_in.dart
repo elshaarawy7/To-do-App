@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/futcher/ui/widget/custem_batton.dart';
 import 'package:todo_app/futcher/ui/widget/custem_text_filed.dart';
 
 class SingIn extends StatelessWidget {
@@ -12,69 +13,105 @@ class SingIn extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 200,) , 
+            SizedBox(height: 200),
 
-            Text("Sing in" , style: TextStyle(
-              color: Colors.black , 
-              fontSize: 25 , 
-              fontWeight: FontWeight.bold 
-            ),) , 
+            Text(
+              "Sing in",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
 
-            SizedBox(height: 10,) , 
+            SizedBox(height: 10),
 
-            //  email and passowrd , 
-            CustemTextFiled( 
-              hintText: "enter ypur email", 
-              icon:Icons.email_outlined , 
-              validator: (value) {
-                if(value == null || value.isEmpty){
-                  return "please enter ypur email " ;
+            //  email and passowrd ,
+            CustemTextFiled(
+              hintText: "enter ypur email",
+              icon: Icons.email_outlined,
+              validator: (value){
+                if (value == null || value.isEmpty) {
+                  return "please enter ypur email ";
                 }
               },
-            ) , 
+            ),
 
-            SizedBox(height: 20,) ,  
+            SizedBox(height: 20),
 
-              CustemTextFiled( 
-              hintText: "enter ypur password", 
-              icon:Icons.lock, 
+            CustemTextFiled(
+              hintText: "enter ypur password",
+              icon: Icons.lock,
               validator: (value) {
-                if(value == null || value.isEmpty || value.length > 6){
-                  return "please enter ypur password" ;
-                } 
-
+                if (value == null || value.isEmpty || value.length > 6) {
+                  return "please enter ypur password";
+                }
               },
-            ) , 
+            ),
 
-            SizedBox(height: 20,) , 
+            SizedBox(height: 20),
 
-            // forget passowrd and remmber me 
+            // forget passowrd and remmber me
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "remmber me ",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+
+                Text(
+                  "forget passowrd ",
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(height: 25),
+            // batton
+            CustemBatton(), 
+
+            SizedBox(height: 30,) , 
+
+            Align(
+              alignment: Alignment.center,
+              child: Text("OR" , style: TextStyle(
+                color: Colors.grey , 
+                fontSize: 20 , 
+                fontWeight: FontWeight.w500
+              ),),
+            ) ,   
+
+            SizedBox(height: 20,) ,
+
+            // sing in with facebook and google
 
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("remmber me " , style: TextStyle(
+                Image.asset("assets/schliol/super g.png" , height: 100, width: 100,) , 
+              
+
+                Text("Login with Google" , style: TextStyle(
                   color: Colors.black , 
-                  fontSize: 16 , 
+                  fontSize: 15 , 
                   fontWeight: FontWeight.w500 , 
-                ),) ,  
+                ),) 
 
-                 Text("forget passowrd " , style: TextStyle(
-                  color: Colors.green , 
-                  fontSize: 16 , 
-                  fontWeight: FontWeight.w500 , 
-                ),) ,  
-
-                // batton 
-
-                
               ],
-            )
-            
-
+            ) , 
           ],
         ),
       ),
-    ) ; 
+    );
   }
 }
+ 
