@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/futcher/ui/widget/custem_batton.dart';
-import 'package:todo_app/futcher/ui/widget/custem_scoil_auth.dart';
 import 'package:todo_app/futcher/ui/widget/custem_text_filed.dart';
 
-class SingIn extends StatelessWidget {
-  const SingIn({super.key});
+class SingUp extends StatelessWidget {
+  const SingUp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +16,19 @@ class SingIn extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 200),
+              SizedBox(height: 50),
+        
+              IconButton(
+                onPressed: () {
+                  context.go(AppRouter.KSingInPage) ; 
+                }, 
+                icon: Icon(Icons.arrow_back , size: 50, color: Colors.black,),
+              ) , 
+        
+              SizedBox(height: 20,) , 
         
               Text(
-                "Sing in",
+                "Sing up",
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 25,
@@ -28,9 +36,20 @@ class SingIn extends StatelessWidget {
                 ),
               ),
         
-              SizedBox(height: 10),
+              SizedBox(height: 10), 
         
-              //  email and passowrd ,
+              //  name and email and passowrd and adssred ,
+               CustemTextFiled(
+                hintText: "enter ypur Name",
+                icon: Icons.email_outlined,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return "please enter ypur Name ";
+                  }
+                },
+              ),
+        
+              SizedBox(height: 10,) ,
               CustemTextFiled(
                 hintText: "enter ypur email",
                 icon: Icons.email_outlined,
@@ -41,7 +60,7 @@ class SingIn extends StatelessWidget {
                 },
               ),
         
-              SizedBox(height: 20),
+              SizedBox(height: 10),
         
               CustemTextFiled(
                 hintText: "enter ypur password",
@@ -53,7 +72,32 @@ class SingIn extends StatelessWidget {
                 },
               ),
         
-              SizedBox(height: 20),
+              SizedBox(height: 10), 
+        
+              CustemTextFiled(
+                hintText: "Confirm password",
+                icon: Icons.lock,
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.length > 6) {
+                    return "please enter ypur Confirm password";
+                  }
+                },
+              ),  
+        
+              SizedBox(height: 10,) , 
+        
+               CustemTextFiled(
+                hintText: "Confirm addreas",
+                icon: Icons.location_city_sharp,
+                validator: (value) {
+                  if (value == null || value.isEmpty || value.length > 6) {
+                    return "please enter ypur addreas";
+                  }
+                },
+              ), 
+        
+        
+              SizedBox(height: 10,) ,
         
               // forget passowrd and remmber me
               Row(
@@ -97,18 +141,7 @@ class SingIn extends StatelessWidget {
                 ),
               ),
         
-              // sing in with facebook and google
-              CustemScoilAuth(
-                image: 'assets/schliol/super g.png',
-                text: 'Login with Google',
-              ),
               
-              SizedBox(height: 10,) , 
-        
-              CustemScoilAuth(
-                image: 'assets/schliol/Group 18560.png',
-                text: "Login with Facebook",
-              ), 
         
               SizedBox(height: 20,) , 
         
@@ -126,10 +159,10 @@ class SingIn extends StatelessWidget {
         
                   TextButton(
                     onPressed: () {
-                      context.go(AppRouter.KSingUP) ;
+                      context.go(AppRouter.KSingInPage) ; 
                     },
                     child: Text(
-                      "Sing up",
+                      "Sing in",
                       style: TextStyle(
                         color: Colors.amber,
                         fontSize: 20,
