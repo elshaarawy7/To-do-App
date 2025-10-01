@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/core/utils/color_app.dart';
 
-class SplashPage1 extends StatelessWidget {
-  const SplashPage1({super.key});
+class SplashPage extends StatelessWidget {
+  const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorApp.green,
-
+      backgroundColor: ColorApp.primary,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10), 
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           children: [
             SizedBox(height: 200),
-        
             Padding(
               padding: const EdgeInsets.only(left: 50),
               child: Align(
                 alignment: Alignment.bottomLeft,
-        
                 child: SizedBox(
                   height: 25,
                   width: 25,
@@ -34,33 +32,33 @@ class SplashPage1 extends StatelessWidget {
                 ),
               ),
             ),
-        
-            SizedBox(height: 30),
-        
+            Gap(30),
             Align(
               alignment: Alignment.center,
               child: Image.asset("assets/splash/Group 33624.png"),
-            ),  
-        
-            SizedBox(height: 20,) , 
-        
+            ),
+            Spacer(),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white , 
-               padding: EdgeInsets.symmetric(horizontal: 120 , vertical: 15)  , 
-               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadiusGeometry.circular(12) , 
-               )
+                backgroundColor: Colors.white,
+                padding: EdgeInsets.symmetric(horizontal: 120, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(16),
+                ),
               ),
               onPressed: () {
-                context.go(AppRouter.KsplahPage2) ; 
-              }, 
-              child: Text("Get Started" , style: TextStyle(
-                color: ColorApp.green , 
-                fontSize: 20 , 
-                fontWeight: FontWeight.bold , 
-              ),),
-            )
+                context.go(AppRouter.kOnBoardingPage);
+              },
+              child: Text(
+                "Get Started",
+                style: TextStyle(
+                  color: ColorApp.primary,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Gap(70),
           ],
         ),
       ),

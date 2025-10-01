@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/core/utils/app_router.dart';
-import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page_1.dart';
 
 void main() {
   runApp(const ToDoApp());

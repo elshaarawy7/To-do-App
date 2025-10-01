@@ -17,16 +17,16 @@ class SingUp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 50),
-        
+
               IconButton(
                 onPressed: () {
-                  context.go(AppRouter.KSingInPage) ; 
-                }, 
-                icon: Icon(Icons.arrow_back , size: 50, color: Colors.black,),
-              ) , 
-        
-              SizedBox(height: 20,) , 
-        
+                  context.go(AppRouter.kSingInPage);
+                },
+                icon: Icon(Icons.arrow_back, size: 50, color: Colors.black),
+              ),
+
+              SizedBox(height: 20),
+
               Text(
                 "Sing up",
                 style: TextStyle(
@@ -35,21 +35,22 @@ class SingUp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-        
-              SizedBox(height: 10), 
-        
+
+              SizedBox(height: 10),
+
               //  name and email and passowrd and adssred ,
-               CustemTextFiled(
+              CustemTextFiled(
                 hintText: "enter ypur Name",
                 icon: Icons.email_outlined,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "please enter ypur Name ";
                   }
+                  return null;
                 },
               ),
-        
-              SizedBox(height: 10,) ,
+
+              SizedBox(height: 10),
               CustemTextFiled(
                 hintText: "enter ypur email",
                 icon: Icons.email_outlined,
@@ -57,11 +58,12 @@ class SingUp extends StatelessWidget {
                   if (value == null || value.isEmpty) {
                     return "please enter ypur email ";
                   }
+                  return null;
                 },
               ),
-        
+
               SizedBox(height: 10),
-        
+
               CustemTextFiled(
                 hintText: "enter ypur password",
                 icon: Icons.lock,
@@ -69,11 +71,12 @@ class SingUp extends StatelessWidget {
                   if (value == null || value.isEmpty || value.length > 6) {
                     return "please enter ypur password";
                   }
+                  return null;
                 },
               ),
-        
-              SizedBox(height: 10), 
-        
+
+              SizedBox(height: 10),
+
               CustemTextFiled(
                 hintText: "Confirm password",
                 icon: Icons.lock,
@@ -81,24 +84,25 @@ class SingUp extends StatelessWidget {
                   if (value == null || value.isEmpty || value.length > 6) {
                     return "please enter ypur Confirm password";
                   }
+                  return null;
                 },
-              ),  
-        
-              SizedBox(height: 10,) , 
-        
-               CustemTextFiled(
+              ),
+
+              SizedBox(height: 10),
+
+              CustemTextFiled(
                 hintText: "Confirm addreas",
                 icon: Icons.location_city_sharp,
                 validator: (value) {
                   if (value == null || value.isEmpty || value.length > 6) {
                     return "please enter ypur addreas";
                   }
+                  return null;
                 },
-              ), 
-        
-        
-              SizedBox(height: 10,) ,
-        
+              ),
+
+              SizedBox(height: 10),
+
               // forget passowrd and remmber me
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,7 +115,7 @@ class SingUp extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-        
+
                   Text(
                     "forget passowrd ",
                     style: TextStyle(
@@ -122,13 +126,13 @@ class SingUp extends StatelessWidget {
                   ),
                 ],
               ),
-        
+
               SizedBox(height: 25),
               // batton
               CustemBatton(),
-        
+
               SizedBox(height: 30),
-        
+
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -140,11 +144,9 @@ class SingUp extends StatelessWidget {
                   ),
                 ),
               ),
-        
-              
-        
-              SizedBox(height: 20,) , 
-        
+
+              SizedBox(height: 20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -156,10 +158,10 @@ class SingUp extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-        
+
                   TextButton(
                     onPressed: () {
-                      context.go(AppRouter.KSingInPage) ; 
+                      context.go(AppRouter.kSingInPage);
                     },
                     child: Text(
                       "Sing in",

@@ -18,7 +18,7 @@ class SingIn extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 200),
-        
+
               Text(
                 "Sing in",
                 style: TextStyle(
@@ -27,9 +27,9 @@ class SingIn extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-        
+
               SizedBox(height: 10),
-        
+
               //  email and passowrd ,
               CustemTextFiled(
                 hintText: "enter ypur email",
@@ -38,11 +38,12 @@ class SingIn extends StatelessWidget {
                   if (value == null || value.isEmpty) {
                     return "please enter ypur email ";
                   }
+                  return null;
                 },
               ),
-        
+
               SizedBox(height: 20),
-        
+
               CustemTextFiled(
                 hintText: "enter ypur password",
                 icon: Icons.lock,
@@ -50,11 +51,12 @@ class SingIn extends StatelessWidget {
                   if (value == null || value.isEmpty || value.length > 6) {
                     return "please enter ypur password";
                   }
+                  return null;
                 },
               ),
-        
+
               SizedBox(height: 20),
-        
+
               // forget passowrd and remmber me
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -67,7 +69,7 @@ class SingIn extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-        
+
                   Text(
                     "forget passowrd ",
                     style: TextStyle(
@@ -78,13 +80,13 @@ class SingIn extends StatelessWidget {
                   ),
                 ],
               ),
-        
+
               SizedBox(height: 25),
               // batton
               CustemBatton(),
-        
+
               SizedBox(height: 30),
-        
+
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -96,22 +98,22 @@ class SingIn extends StatelessWidget {
                   ),
                 ),
               ),
-        
+
               // sing in with facebook and google
               CustemScoilAuth(
                 image: 'assets/schliol/super g.png',
                 text: 'Login with Google',
               ),
-              
-              SizedBox(height: 10,) , 
-        
+
+              SizedBox(height: 10),
+
               CustemScoilAuth(
                 image: 'assets/schliol/Group 18560.png',
                 text: "Login with Facebook",
-              ), 
-        
-              SizedBox(height: 20,) , 
-        
+              ),
+
+              SizedBox(height: 20),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -123,10 +125,10 @@ class SingIn extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-        
+
                   TextButton(
                     onPressed: () {
-                      context.go(AppRouter.KSingUP) ;
+                      context.go(AppRouter.kSingUP);
                     },
                     child: Text(
                       "Sing up",

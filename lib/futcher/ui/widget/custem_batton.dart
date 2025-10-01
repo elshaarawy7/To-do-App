@@ -11,7 +11,7 @@ class CustemBatton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(15) , 
         ),
-       backgroundColor: ColorApp.green , 
+       backgroundColor: ColorApp.primary , 
        padding: EdgeInsets.symmetric(
         horizontal: 40 , 
         vertical: 20 , 

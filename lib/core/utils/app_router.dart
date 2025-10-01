@@ -1,53 +1,24 @@
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/futcher/ui/pages/auth/sing_in.dart';
 import 'package:todo_app/futcher/ui/pages/auth/sing_up.dart';
-import 'package:todo_app/futcher/ui/pages/splash_pages/splash_oage_4.dart';
-import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page_1.dart';
-import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page_2.dart';
-import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page_3.dart';
+import 'package:todo_app/futcher/ui/pages/splash_pages/on_boarding_page.dart';
+import 'package:todo_app/futcher/ui/pages/splash_pages/splash_page.dart';
 
-class AppRouter { 
- 
- static final String KsplashPage1 = '/' ;
- static final String KsplahPage2 = '/splash_page_2' ;
- static final String KSplashPage3 = '/splash_page_3' ;
- static final String KSplashpage4 = '/splash_page_4' ;
- static final String KSingInPage = '/sing_in_page' ;
- static final String KSingUP = '/sing_up' ;
+class AppRouter {
+  static final String kSplashPage = '/';
+  static final String kOnBoardingPage = '/on_boarding_page';
+  static final String kSingInPage = '/sing_in_page';
+  static final String kSingUP = '/sing_up';
 
- static final GoRouter router = GoRouter(
-  routes: [
+  static final GoRouter router = GoRouter(
+    routes: [
+      GoRoute(path: kSplashPage, builder: (context, state) => SplashPage()),
 
-    GoRoute(
-      path: KsplashPage1 , 
-      builder: (context, state) => SplashPage1(),
-    ) , 
+      GoRoute(path: kOnBoardingPage, builder: (context, state) => OnBoardingPage()),
 
-    GoRoute(
-      path: KsplahPage2 , 
-      builder: (context, state) => SplashPage2(),
-    ) ,  
+      GoRoute(path: kSingInPage, builder: (context, state) => SingIn()),
 
-    GoRoute(
-      path: KSplashPage3 , 
-      builder: (context, state) => SplashPage3(),
-    ) , 
-
-    GoRoute(
-      path: KSplashpage4 , 
-      builder: (context, state) => SplashOage4(),
-    ) , 
-    GoRoute(
-      path: KSingInPage , 
-      builder: (context, state) => SingIn(),
-    ) ,  
-
-     GoRoute(
-      path: KSingUP , 
-      builder: (context, state) => SingUp(),
-    ) , 
-
-  ]
- );
-
+      GoRoute(path: kSingUP, builder: (context, state) => SingUp()),
+    ],
+  );
 }

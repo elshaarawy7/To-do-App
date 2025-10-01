@@ -1,41 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app/core/utils/app_router.dart';
+import 'package:gap/gap.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
   const CustomBottomNavigation({
     super.key,
     this.onPressed,
+    this.onPressed2,
     required this.currentIndex,
-    this.onPressed2 ,
   });
+
   final void Function()? onPressed;
   final void Function()? onPressed2;
-
   final int currentIndex;
 
   @override
   Widget build(BuildContext context) {
+    // النصوص اللي هتتغير حسب الصفحة
+    final List<String> titles = [
+      "Create task reminders",
+      "Keep track of tasks",
+      "Create profile to get started",
+    ];
+
     return Column(
       children: [
+        /// النص العلوي المتغير
         Text(
-          "Create task reminders",
-          style: TextStyle(
+          titles[currentIndex],
+          textAlign: TextAlign.center,
+          style: const TextStyle(
             color: Colors.white,
             fontSize: 20,
             fontWeight: FontWeight.w500,
           ),
         ),
+Gap(100),
 
-        SizedBox(height: 100),
-
+        /// أزرار التنقل + المؤشرات
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            /// زر Skip / Back
             TextButton(
               onPressed: onPressed,
-              child: Text(
+              child: const Text(
                 "Skip",
                 style: TextStyle(
                   color: Colors.white,
@@ -45,6 +53,7 @@ class CustomBottomNavigation extends StatelessWidget {
               ),
             ),
 
+            /// النقاط
             Row(
               children: List.generate(
                 3,
@@ -62,11 +71,12 @@ class CustomBottomNavigation extends StatelessWidget {
               ),
             ),
 
+            /// زر Next
             TextButton(
               onPressed: onPressed2,
               child: Text(
-                "Next",
-                style: TextStyle(
+                currentIndex == 2 ? "Get Started" : "Next",
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
