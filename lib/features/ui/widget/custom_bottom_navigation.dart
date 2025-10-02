@@ -34,7 +34,7 @@ class CustomBottomNavigation extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-Gap(100),
+        Gap(100),
 
         /// أزرار التنقل + المؤشرات
         Row(

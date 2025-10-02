@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
-import 'package:todo_app/futcher/ui/widget/custem_batton.dart';
-import 'package:todo_app/futcher/ui/widget/custem_scoil_auth.dart';
-import 'package:todo_app/futcher/ui/widget/custem_text_filed.dart';
+import 'package:todo_app/features/ui/widget/custem_batton.dart';
+import 'package:todo_app/features/ui/widget/custem_scoil_auth.dart';
+import 'package:todo_app/features/ui/widget/custem_text_filed.dart';
 
 class SingIn extends StatelessWidget {
   const SingIn({super.key});
@@ -83,7 +83,11 @@ class SingIn extends StatelessWidget {
 
               SizedBox(height: 25),
               // batton
-              CustemBatton(),
+              CustemBatton(
+                onPressed: () {
+                  context.go(AppRouter.kHomePage);
+                },
+              ),
 
               SizedBox(height: 30),
 

@@ -17,7 +17,6 @@ class ToDoApp extends StatelessWidget {
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white
       ),
-
-    ) ;
+    );
   }
 }

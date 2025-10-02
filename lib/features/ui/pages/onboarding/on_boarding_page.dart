@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/core/utils/color_app.dart';
-import 'package:todo_app/futcher/ui/widget/custom_bottom_navigation.dart';
+import 'package:todo_app/features/ui/widget/custom_bottom_navigation.dart';
 
 class OnBoardingPage extends StatefulWidget {
   const OnBoardingPage({super.key});
@@ -33,14 +33,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     }
   }
 
-  void _prevPage() {
-    if (_currentIndex > 0) {
-      _pageController.previousPage(
-        duration: const Duration(milliseconds: 400),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
+ void _prevPage() {
+  context.go(AppRouter.kSingInPage); 
+}
 
   @override
   Widget build(BuildContext context) {
