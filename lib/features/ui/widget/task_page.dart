@@ -33,7 +33,6 @@ class _TaskPageState extends State<TaskPage> {
             DateTime.now().subtract(const Duration(days: 7)),
             height: 96,
             initialSelectedDate: DateTime.now(),
-            selectionColor: Colors.green,
             selectedTextColor: Colors.white,
             daysCount: 15 , 
             dayTextStyle: const TextStyle(
@@ -67,8 +66,9 @@ class _TaskPageState extends State<TaskPage> {
           ),
         ), 
         SizedBox(height: 10,) , 
-        Divider() , 
-         TodayTaskList(),
+         Divider() , 
+         TodayTaskList(), 
+         
       ],
     );
   }
@@ -82,9 +82,12 @@ class TodayTaskList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: 3,
+      itemCount: 4,
       itemBuilder: (context, index) {
-        return TodayItem();
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10), 
+          child: TodayItem(),
+        );
       },
     );
   }
@@ -114,8 +117,13 @@ class _TodayItemState extends State<TodayItem> {
           category: 'clean code',
           color: Colors.red,
         ),
-        Divider(),
+        Divider(), 
+
+       
       ],
     );
   }
-}
+} 
+
+
+

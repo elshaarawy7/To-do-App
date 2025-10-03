@@ -25,7 +25,8 @@ class HomePage extends StatelessWidget {
                     const SizedBox(width: 12),
                     const Text(
                       'Good morning 👋',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, fontSize: 20),
                     ),
                     const Spacer(),
                     Container(
@@ -44,11 +45,27 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-          
+
               /// هنا صفحة المهام
               const TaskPage(),
             ],
           ),
+        ),
+      ),
+
+      // زرار إضافة التاسك
+      floatingActionButton: SizedBox(
+        height: 70,
+        width: 70,
+        child: FloatingActionButton(
+          onPressed: () {
+            // TODO: افتح شاشة Add Task
+          },
+          backgroundColor: const Color(0xff00A86B),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20), // مربع بحواف ناعمة
+          ),
+          child: const Icon(Icons.add, size: 30, color: Colors.white),
         ),
       ),
     );

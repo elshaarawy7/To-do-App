@@ -31,7 +31,21 @@ class TaskItem extends StatelessWidget {
           decoration: isDone ? TextDecoration.lineThrough : null,
         ),
       ),
-      trailing: Text(category),
+      trailing: Row(
+  mainAxisSize: MainAxisSize.min, // 👈 الحل السحري
+  children: [
+    IconButton(
+      onPressed: () {},
+      icon: Icon(Icons.edit, color: Colors.black, size: 18),
+    ),
+    SizedBox(height: 5),
+    IconButton(
+      onPressed: () {},
+      icon: Icon(Icons.delete_sharp, size: 18, color: Colors.black),
+    ),
+  ],
+),
+
     );
   }
 }
