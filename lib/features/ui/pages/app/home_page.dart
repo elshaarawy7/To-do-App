@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/features/ui/widget/flotang_action_batton.dart';
 import 'package:todo_app/features/ui/widget/task_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -54,20 +55,20 @@ class HomePage extends StatelessWidget {
       ),
 
       // زرار إضافة التاسك
-      floatingActionButton: SizedBox(
-        height: 70,
-        width: 70,
-        child: FloatingActionButton(
-          onPressed: () {
-            // TODO: افتح شاشة Add Task
-          },
-          backgroundColor: const Color(0xff00A86B),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(20), // مربع بحواف ناعمة
-          ),
-          child: const Icon(Icons.add, size: 30, color: Colors.white),
+      floatingActionButton: CustomFAB(
+    onPressed: () { 
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(top: Radius.circular(20))
         ),
-      ),
+        builder: (context) {
+          
+        },
+      );
+    },
+  ),
     );
   }
 }
