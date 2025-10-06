@@ -22,10 +22,7 @@ class _DateSelectorState extends State<DateSelector> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
-      body: Center(
-        child: Container(
+    return  Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             color: Colors.teal.shade200,
@@ -73,9 +70,8 @@ class _DateSelectorState extends State<DateSelector> {
                 ),
               );
             }),
-          ),
-        ),
-      ),
+          )
     );
+     
   }
 }
