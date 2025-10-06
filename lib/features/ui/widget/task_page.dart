@@ -12,12 +12,13 @@ class TaskPage extends StatefulWidget {
 }
 
 class _TaskPageState extends State<TaskPage> {
+  DateTime selectedDate = DateTime.now(); // 👈 متغير التاريخ الحالي
+
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    final dayName = DateFormat('EEEE').format(now); // اسم اليوم (مثال: Wednesday)
-    final dayNumber = DateFormat('d').format(now); // رقم اليوم (2)
-    final monthName = DateFormat('MMMM').format(now); // اسم الشهر (October)
+    final dayName = DateFormat('EEEE').format(selectedDate);
+    final dayNumber = DateFormat('d').format(selectedDate);
+    final monthName = DateFormat('MMMM').format(selectedDate);
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -34,10 +35,10 @@ class _TaskPageState extends State<TaskPage> {
             child: DatePicker(
               DateTime.now().subtract(const Duration(days: 7)),
               height: 96,
-              initialSelectedDate: DateTime.now(),
+              initialSelectedDate: selectedDate,
               selectionColor: Colors.green,
               selectedTextColor: Colors.white,
-              daysCount: 15,
+              daysCount: 30,
               dayTextStyle: const TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w500,
@@ -47,7 +48,9 @@ class _TaskPageState extends State<TaskPage> {
                 (i) => DateTime.now().subtract(Duration(days: i + 1)),
               ),
               onDateChange: (date) {
-                debugPrint("Selected date: $date");
+                setState(() {
+                  selectedDate = date; // 👈 تحديث التاريخ المختار
+                });
               },
             ),
           ),
@@ -57,13 +60,19 @@ class _TaskPageState extends State<TaskPage> {
             child: Row(
               children: [
                 Text(
-                  'Today, $dayNumber $monthName',
-                  style: const TextStyle(fontSize: 10, color: Color(0xff7E8491)),
+                  ' $dayNumber $monthName',
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: Color(0xff7E8491),
+                  ),
                 ),
                 const Gap(20),
                 Text(
-                  dayName, // 👈 اسم اليوم بيتغير تلقائي
-                  style: const TextStyle(fontSize: 10, color: Color(0xff7E8491)),
+                  dayName,
+                  style: const TextStyle(
+                    fontSize: 10,
+                    color: Color(0xff7E8491),
+                  ),
                 ),
               ],
             ),
