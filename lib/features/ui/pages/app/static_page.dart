@@ -1,44 +1,126 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:todo_app/core/utils/app_router.dart';
-import 'package:todo_app/features/ui/widget/selector_statics.dart';
-import 'package:todo_app/features/ui/widget/stax_row.dart';
 
-class StaticPage extends StatelessWidget {
-  const StaticPage({super.key});
+class StatisticsPage extends StatefulWidget {
+  const StatisticsPage({super.key});
+
+  @override
+  State<StatisticsPage> createState() => _StatisticsPageState();
+}
+
+class _StatisticsPageState extends State<StatisticsPage> {
+  String selectedFilter = "Week"; // الافتراضي
+  double progress = 0.8; // نسبة الانجاز الافتراضية
+  int completedTasks = 418;
+  int totalTasks = 496;
+
+  // بيانات كل اختيار
+  final Map<String, Map<String, dynamic>> stats = {
+    "Week": {"progress": 0.10, "completed": 418, "total": 496},
+    "Month": {"progress": 0.6, "completed": 1230, "total": 2050},
+    "Year": {"progress": 0.9, "completed": 14500, "total": 16100},
+  };
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        leading: IconButton(
-          onPressed: () {
-            context.go(AppRouter.kHomePage);
-          },
-          icon: Icon(Icons.arrow_back_ios, size: 25, color: Colors.black),
-        ),
-
-        title: Text(
-          "Statistics",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+        title: const Text("Statistics")),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             // ويدحت اختيار اليوم او الشهر  الخ ...
-            SelectorStatics(),
-            SizedBox(height: 20),
-            // ويدجت الي بتحققلك  الاحصائيات
-            StatsRow(title: "Tasks completed", value: "418", subValue: "/496"),
-            const SizedBox(height: 10), 
-            StatsRow(title: "Completion rate", value: "80", subValue: "%"),
+            // ✅ الفلاتر (Week / Month / Year)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: stats.keys.map((key) {
+                bool isSelected = selectedFilter == key;
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      selectedFilter = key;
+                      progress = stats[key]!["progress"];
+                      completedTasks = stats[key]!["completed"];
+                      totalTasks = stats[key]!["total"];
+                    });
+                  },
+                  child: Card(
+                    color: isSelected ? Colors.green : Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    elevation: 4,
+                    child: SizedBox(
+                      height: 60,
+                      width: 80,
+                      child: Center(
+                        child: Text(
+                          key,
+                          style: TextStyle(
+                            color: isSelected ? Colors.white : Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+
+            const SizedBox(height: 30),
+
+            // ✅ الاحصائيات
+            Row(
+              children: [
+                const Text("Tasks completed",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                const Icon(Icons.arrow_right_alt, size: 30),
+                Text(
+                  "$completedTasks",
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  "/$totalTasks",
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 10),
+
+            Row(
+              children: [
+                const Text("Completion rate",
+                    style:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                const Icon(Icons.arrow_right_alt, size: 30),
+                Text(
+                  "${(progress * 100).toInt()}%",
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+
+            const SizedBox(height: 15),
+
+            // ✅ شريط التقدم
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: LinearProgressIndicator(
+                value: progress,
+                minHeight: 15,
+                color: Colors.green,
+                backgroundColor: Colors.grey.shade300,
+              ),
+            ),
           ],
         ),
       ),

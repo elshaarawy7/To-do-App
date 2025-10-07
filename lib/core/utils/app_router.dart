@@ -29,7 +29,7 @@ class AppRouter {
       GoRoute(path: kHomePage, builder: (context, state) => HomePage()), 
       GoRoute(
         path: staticPage , 
-        builder: (context, state) => StaticPage(),
+        builder: (context, state) => StatisticsPage()
       )
     ],
   );
