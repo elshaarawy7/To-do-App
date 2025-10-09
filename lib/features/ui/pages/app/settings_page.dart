@@ -1,13 +1,30 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 import 'package:todo_app/features/ui/widget/custem_text_filed.dart';
 import 'package:todo_app/features/ui/widget/setting_item.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> { 
+  
+  XFile? selectedImage ;
+  // upload image funaction 
+   Future<void> updloadImage() async{
+     final PikedImage  = await ImagePicker().pickImage(source: ImageSource.gallery);
+     setState(() {
+       selectedImage = PikedImage ;
+     });
+   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,9 +56,22 @@ class SettingsPage extends StatelessWidget {
             SizedBox(height: 50,) , 
             Align(
               alignment: Alignment.center,
-              child: CircleAvatar(
-                backgroundColor: Colors.grey,  
-                radius: 45, 
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    updloadImage();
+                  });
+                },
+                child: Container(
+                  height: 100 , 
+                  width: 100, 
+                  decoration: BoxDecoration(
+                    color: Colors.grey , 
+                    borderRadius: BorderRadius.circular(12) , 
+                  ),
+                  child: selectedImage == null ? null 
+                         : Image.file(File(selectedImage!.path)), 
+                ),
               ),
             ),    
             SizedBox(height: 20,) , 
