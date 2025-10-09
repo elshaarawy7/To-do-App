@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/core/utils/app_router.dart';
 
@@ -8,46 +9,60 @@ class CustemDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: Colors.green,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-             Row(
-               children: [
-                 IconButton(
-                  onPressed: () {
-                    context.go(AppRouter.staticPage) ;
-                  }, 
-                  icon: Icon(Icons.bar_chart , size: 30,color: Colors.white,),
-                 ), 
+      backgroundColor: Colors.green,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Gap(80),
+            GestureDetector(
+              onTap: () {
+                context.go(AppRouter.staticPage);
+              },
+              child: Row(
+                children: [
+                  Gap(20),
 
-                 Text(": statistics" , style: TextStyle(
-                  color: Colors.white , fontSize: 20 , 
-                  fontWeight: FontWeight.bold
-                 ),) , 
-               ],
-             ) ,  
+                  Icon(Icons.bar_chart, size: 30, color: Colors.white),
 
-               Row(
-               children: [
-                 IconButton(
-                  onPressed: () {
-                    
-                  }, 
-                  icon: Icon(Icons.settings , size: 30,color: Colors.white,),
-                 ), 
+                  Text(
+                    ": statistics",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Gap(20),
 
-                 Text(": settings" , style: TextStyle(
-                  color: Colors.white , fontSize: 20 , 
-                  fontWeight: FontWeight.bold
-                 ),) , 
-               ],
-             ) ,
-            ],
-          ),
+            GestureDetector(
+              onTap: () {
+                context.go(AppRouter.kSettingsPage);
+              },
+              child: Row(
+                children: [
+                  Gap(20),
+
+                  Icon(Icons.settings, size: 30, color: Colors.white),
+
+                  Text(
+                    ": settings",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

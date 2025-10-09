@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:todo_app/features/ui/pages/app/home_page.dart';
+import 'package:todo_app/features/ui/pages/app/settings_page.dart';
 import 'package:todo_app/features/ui/pages/app/static_page.dart';
 import 'package:todo_app/features/ui/pages/auth/sing_in.dart';
 import 'package:todo_app/features/ui/pages/auth/sing_up.dart';
@@ -12,7 +13,8 @@ class AppRouter {
   static final String kSingInPage = '/sing_in_page';
   static final String kSingUP = '/sing_up';
   static final String kHomePage = '/home_page';
-  static final String staticPage = '/static_page' ;
+  static final String staticPage = '/static_page';
+  static final String kSettingsPage = '/settings_page';
 
   static final GoRouter router = GoRouter(
     routes: [
@@ -26,10 +28,14 @@ class AppRouter {
       GoRoute(path: kSingInPage, builder: (context, state) => SingIn()),
 
       GoRoute(path: kSingUP, builder: (context, state) => SingUp()),
-      GoRoute(path: kHomePage, builder: (context, state) => HomePage()), 
+      GoRoute(path: kHomePage, builder: (context, state) => HomePage()),
       GoRoute(
-        path: staticPage , 
-        builder: (context, state) => StatisticsPage()
+        path: staticPage,
+        builder: (context, state) => StatisticsPage(),
+      ), 
+      GoRoute(
+        path: kSettingsPage , 
+        builder: (context, state) => SettingsPage(),
       )
     ],
   );

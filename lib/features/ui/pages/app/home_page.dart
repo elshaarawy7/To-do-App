@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/features/ui/widget/add_task_battom_sheate.dart';
 import 'package:todo_app/features/ui/widget/custem_drawer.dart';
-import 'package:todo_app/features/ui/widget/date_selector.dart';
 import 'package:todo_app/features/ui/widget/flotang_action_batton.dart';
 import 'package:todo_app/features/ui/widget/task_page.dart';
 
@@ -13,10 +12,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // هنا الليستة اللي بتحتفظ بالتاسكات
+  // 🔹 الليستة اللي بتحتفظ بالتاسكات
   final List<String> tasks = [];
 
-  // function لإضافة التاسك
+  // 🔹 function لإضافة التاسك
   void addTask(String title) {
     setState(() {
       tasks.add(title);
@@ -26,16 +25,14 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        backgroundColor: Colors.white,
-       ),
-      drawer: CustemDrawer() ,
+      appBar: AppBar(backgroundColor: Colors.white, elevation: 0),
+      drawer: const CustemDrawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: Column(
-          
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             
+            // 👇 صف الترحيب + الإشعارات
             Row(
               children: [
                 const CircleAvatar(
@@ -65,17 +62,16 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
-            SizedBox(height: 100, child: DateSelector()),
 
-            /// هنا صفحة المهام
+            // 👇 صفحة المهام
             Expanded(child: TaskPage(tasks: tasks)),
           ],
         ),
       ),
 
-      // زرار إضافة التاسك
+      // 👇 زرار إضافة التاسك
       floatingActionButton: CustomFAB(
         onPressed: () {
           showModalBottomSheet(
