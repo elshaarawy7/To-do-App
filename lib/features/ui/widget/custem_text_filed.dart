@@ -5,7 +5,7 @@ class CustemTextFiled extends StatelessWidget {
     super.key,
     required this.icon,
     required this.hintText,
-    this.validator,
+    this.validator, 
   });
   final bool obscureText = false;
   final IconData icon;
