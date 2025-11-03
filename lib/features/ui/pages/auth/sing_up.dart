@@ -35,12 +35,10 @@ class SingUp extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-
               SizedBox(height: 10),
-
               //  name and email and passowrd and adssred ,
               CustemTextFiled(
-                hintText: "enter ypur Name",
+                hintText: "enter your Name",
                 icon: Icons.email_outlined,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -52,7 +50,7 @@ class SingUp extends StatelessWidget {
 
               SizedBox(height: 10),
               CustemTextFiled(
-                hintText: "enter ypur email",
+                hintText: "Email",
                 icon: Icons.email_outlined,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -65,11 +63,11 @@ class SingUp extends StatelessWidget {
               SizedBox(height: 10),
 
               CustemTextFiled(
-                hintText: "enter ypur password",
+                hintText: "Password",
                 icon: Icons.lock,
                 validator: (value) {
                   if (value == null || value.isEmpty || value.length > 6) {
-                    return "please enter ypur password";
+                    return "please enter your password";
                   }
                   return null;
                 },
@@ -82,7 +80,7 @@ class SingUp extends StatelessWidget {
                 icon: Icons.lock,
                 validator: (value) {
                   if (value == null || value.isEmpty || value.length > 6) {
-                    return "please enter ypur Confirm password";
+                    return "please enter your Confirm password";
                   }
                   return null;
                 },
@@ -91,18 +89,16 @@ class SingUp extends StatelessWidget {
               SizedBox(height: 10),
 
               CustemTextFiled(
-                hintText: "Confirm addreas",
-                icon: Icons.location_city_sharp,
+                hintText: "Confirm Password",
+            icon: Icons.remove_red_eye,
                 validator: (value) {
                   if (value == null || value.isEmpty || value.length > 6) {
-                    return "please enter ypur addreas";
+                    return "please enter your Confirm password";
                   }
                   return null;
                 },
               ),
-
               SizedBox(height: 10),
-
               // forget passowrd and remmber me
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -115,7 +111,6 @@ class SingUp extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-
                   Text(
                     "forget passowrd ",
                     style: TextStyle(
@@ -126,7 +121,6 @@ class SingUp extends StatelessWidget {
                   ),
                 ],
               ),
-
               SizedBox(height: 25),
               // batton
               CustemBatton(
@@ -134,9 +128,7 @@ class SingUp extends StatelessWidget {
                   context.go(AppRouter.kHomePage);
                 },
               ),
-
               SizedBox(height: 30),
-
               Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -148,9 +140,7 @@ class SingUp extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(height: 20),
-
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -162,7 +152,6 @@ class SingUp extends StatelessWidget {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-
                   TextButton(
                     onPressed: () {
                       context.go(AppRouter.kSingInPage);

@@ -5,18 +5,20 @@ class CustemTextFiled extends StatelessWidget {
     super.key,
     required this.icon,
     required this.hintText,
-    this.validator, 
+    this.validator, this.controller, 
   });
   final bool obscureText = false;
   final IconData icon;
   final String hintText;
   final String? Function(String?)? validator;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
       obscureText: obscureText,
+      controller: controller,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: TextStyle(color: Colors.grey, fontSize: 16),
