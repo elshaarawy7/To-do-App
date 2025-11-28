@@ -5,9 +5,12 @@ class CustemTextFiled extends StatelessWidget {
     super.key,
     required this.icon,
     required this.hintText,
-    this.validator, this.controller, 
+    this.validator,
+    this.controller,
+    this.obscureText = false, // 👉 استقبال القيمة
   });
-  final bool obscureText = false;
+
+  final bool obscureText;
   final IconData icon;
   final String hintText;
   final String? Function(String?)? validator;
@@ -17,7 +20,7 @@ class CustemTextFiled extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       validator: validator,
-      obscureText: obscureText,
+      obscureText: obscureText, // 👉 استخدام القيمة
       controller: controller,
       decoration: InputDecoration(
         hintText: hintText,

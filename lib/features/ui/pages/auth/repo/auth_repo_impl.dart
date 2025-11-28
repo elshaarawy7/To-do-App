@@ -9,6 +9,7 @@ class AuthRepoImpl extends AuthRepo {
   final ApiService apiService;
 
   AuthRepoImpl({required this.apiService});
+
   @override
   Future<Either<Failure, UserModel>> login({
     required String email,
@@ -19,9 +20,10 @@ class AuthRepoImpl extends AuthRepo {
         endPoint: '/login',
         data: {'email': email, 'password': password},
       );
-      return right(UserModel.fromJson(response));
+
+      return right(UserModel.fromJson(response["data"]));
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
       return left(ServerFailure(e.toString()));
@@ -34,17 +36,18 @@ class AuthRepoImpl extends AuthRepo {
     required String password,
     required String name,
   }) async {
-    try{
+    try {
       final response = await apiService.post(
-        endPoint: 'http://127.0.0.1:8000/api',
+        endPoint: '/register',
         data: {'name': name, 'email': email, 'password': password},
       );
-      return right(UserModel.fromJson(response));
+
+      return right(UserModel.fromJson(response["data"]));
     } catch (e) {
-      if (e is DioError) {
+      if (e is DioException) {
         return left(ServerFailure.fromDioError(e));
       }
-      return Left(ServerFailure(e.toString()));
+      return left(ServerFailure(e.toString()));
     }
   }
 }

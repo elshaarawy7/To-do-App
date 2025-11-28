@@ -19,6 +19,11 @@ class _SingInState extends State<SingIn> {
       body: BlocConsumer<SigninCubit, SignInState>(
         listener: (context, state) {
           if (state is SigninSuccess) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(
+              const SnackBar(content: Text("Login Successful")),
+            );
             context.go(AppRouter.kHomePage);
           } else if (state is SignInFailure) {
             ScaffoldMessenger.of(

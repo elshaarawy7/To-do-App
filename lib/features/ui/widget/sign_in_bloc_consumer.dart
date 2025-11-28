@@ -33,7 +33,6 @@ class _SingInBlocConsumerState extends State<SingInBlocConsumer> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Form(
           key: _formKey, // ✅ هنا ضفنا الـ Form
-          autovalidateMode: AutovalidateMode.always,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -105,6 +104,7 @@ class _SingInBlocConsumerState extends State<SingInBlocConsumer> {
                       email: email,
                       password: password,
                     );
+                    
                   }
                 },
               ),
